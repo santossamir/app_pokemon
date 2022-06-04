@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoPokeapi from "../img/logoPokeapi.png";
+import logoPokemon from "../img/logo.svg";
 import "../css/navbar.css";
 
 export default function Navbar(){
@@ -9,23 +9,23 @@ export default function Navbar(){
             <div class="nav-wrapper">
                 <div className="logo">
                     <Link to="/">
-                        <img src={logoPokeapi} alt="Logo PokeApi"/>
+                        <img src={logoPokemon} alt="Logo Pokémon"/>
                     </Link> 
                 </div>
                 <div class="menu">
                     <div>
                         <Link to={"/"}>
-                            <h2>Home</h2>
+                            <small>Home</small>
                         </Link>
                     </div>
                     <div>
                         <Link to={"/pokemons"}>
-                            <h2>Pokemons</h2>
+                            <small>Pokemons</small>
                         </Link>
                     </div>
                     <div>
                         <Link to={"/contacts"}>
-                            <h2>Contato</h2>
+                            <small>Contato</small>
                         </Link>
                     </div>
                 </div>
