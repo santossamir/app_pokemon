@@ -1,0 +1,28 @@
+.nav-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 120px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 25px rgba(169, 169, 169, 0.2);
+}
+
+.logo{
+    margin-left: 10%;
+}
+
+.menu{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 10%;
+}
+
+.menu div:hover{
+    border-bottom: 3px solid;
+}
+
+.menu a{
+    text-decoration: none;
+}
