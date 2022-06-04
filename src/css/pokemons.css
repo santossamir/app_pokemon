@@ -1,0 +1,56 @@
+.containerPokemons{
+    
+}
+
+.pokemonsTittle{
+    border: 1px solid;
+    width: 70%;
+    /*display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;*/
+}
+
+.pokemonsSearch{
+    width: 70%;
+    background: #FFFFFF;
+    border: 1px solid #F1F1F1;
+    box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.1);
+    border-radius: 40px;
+    border: 1px solid;
+}
+
+.pokemonsSearch input{
+    width: 85%;
+    height: 50px;
+    border: none;
+    padding-left: 10px;
+    background: transparent;
+    margin-right: 0;
+}
+
+.pokemonsSearch button{
+    border: none;
+    background: #FFFFFF;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+} 
+
+.pokemonsSearch button img{
+    width:70%;
+    height: 50%;
+}
+
+.cards{
+    width: 162px;
+    height: 109.01px;
+    background: linear-gradient(8.46deg, #46A487 -0.58%, #46D7AB 108.38%);
+    border-radius: 15px;
+}
+
+.cards2{
+    width: 162px;
+    height: 110px;
+    background: #FB6C6C;
+    border-radius: 15px;
+}
