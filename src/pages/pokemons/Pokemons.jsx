@@ -3,27 +3,40 @@ import "../../css/pokemons.css";
 import Navbar from "../../components/Navbar";
 import search from "../../img/iconSearch.svg";
 import {api} from "../../service/api.js";
-import img from "../../img/bulbasaurPoke.svg";
 
 export default function Pokemons(){
 
-    //const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=18');
+    const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=18');
     const [pokemons, setPokemons] = useState([]);
 
 async function showPokemons(){
-    await api.get('pokemon/').then(response => {
-        setPokemons(response.data);
-        console.log(response.data);
-    })
+    const {data} = await api.get(`pokemon/`, {method:'GET'});
+    const poke = data.results;
+    const newPokes = [];
+    
+    for await (const element of poke){
+        const {data} = await api.get(element.url);
+        const newPoke = Object.assign({...element}, data);
+        console.log("This: ", newPoke); 
+        newPokes.push(newPoke);
+    }
+    setPokemons(newPokes);
 } 
 
 useEffect(()=>{
     showPokemons();
-}, [])
+}, []);
 
-function getAllPokemons(){
-    alert('ok');
+async function getAllPokemons(){
+   const res = api.get(loadMore);
+
+   setLoadMore(res);
 }
+
+useEffect(()=> {
+    getAllPokemons()
+}, []);
+
     return(
         <>
             <Navbar/>
@@ -60,80 +73,30 @@ function getAllPokemons(){
                 </div>
                 <div className="pokemonsCards">
                     <div className="boxCards">
-                    
-                        <div className="cards">
-                            <div className="cardNumber">
-                                <small>#001</small>
-                            </div>
-                            <div className="cardName">
-                                <small>Bulbasaur</small>
-                            </div>
-                            <div className="cardCategoriesImage">
-                                < div className="cardCategories">
-                                    <div className="type">
-                                        <small>Planta</small>
+                        {console.log("My pokemons: ", pokemons)}
+                        {pokemons && pokemons.map((item, index) => (
+                            <div className="cards" key={index}>
+                                <div className="cardNumber">
+                                    <small>#0{item.id}</small>
+                                </div>
+                                <div className="cardName">
+                                    <small>{item.name}</small>
+                                </div>
+                                <div className="cardCategoriesImage">
+                                    < div className="cardCategories">
+                                        <div className="type">
+                                            <small>{item.types[0].type.name}</small>
+                                        </div>
+                                        <div className="typeTwo">
+                                            <small>{''}</small>
+                                        </div>
                                     </div>
-                                    <div className="typeTwo">
-                                        <small>Venenoso</small>
+                                    <div className="cardImage">
+                                        <img src={item.sprites.other.dream_world.front_default}/>
                                     </div>
                                 </div>
-                                <div className="cardImage">
-                                    <img src={img}/>
-                                </div>
                             </div>
-                              
-                        </div>
-                        <div className="cards2">
-
-                        </div>
-                        <div className="cards">
-
-                        </div>
-                        <div className="cards2">
-
-                        </div>
-                        <div className="cards">
-
-                        </div>
-                        <div className="cards2">
-
-                        </div>
-                        <div className="cards">
-
-                        </div>
-                        <div className="cards2">
-
-                        </div>
-                        <div className="cards">
-
-                        </div>
-                        <div className="cards2">
-
-                        </div>
-                        <div className="cards">
-
-                        </div>
-                        <div className="cards2">
-
-                        </div>
-                        <div className="cards">
-
-                        </div>
-                        <div className="cards2">
-
-                        </div>
-                        <div className="cards">
-
-                        </div>
-                        <div className="cards2">
-
-                        </div>
-                        <div className="cards">
-
-                        </div>
-                        <div className="cards2">
-
-                        </div>
+                        ))}
                     </div>
                     <div className="cardsButtonMore">
                         <button onClick={() => getAllPokemons()}>
