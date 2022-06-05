@@ -6,7 +6,7 @@ import {api} from "../../service/api.js";
 
 export default function Pokemons(){
 
-    const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=18');
+    const [loadMore, setLoadMore] = useState([]);
     const [pokemons, setPokemons] = useState([]);
 
 async function showPokemons(){
@@ -17,78 +17,79 @@ async function showPokemons(){
     for await (const element of poke){
         const {data} = await api.get(element.url);
         const newPoke = Object.assign({...element}, data);
-        console.log("This: ", newPoke); 
+        //console.log("This: ", newPoke); 
         newPokes.push(newPoke);
     }
     setPokemons(newPokes);
+    console.log(pokemons);
 } 
 
 useEffect(()=>{
     showPokemons();
 }, []);
 
-async function getAllPokemons(){
-   const res = api.get(loadMore);
-
-   setLoadMore(res);
+async function getAllPokemons() {
+   const res = await api.get(`pokemon?offset=20&limit=20`, {method: 'GET'});
+   setLoadMore(res.data.next);
 }
 
 useEffect(()=> {
     getAllPokemons()
 }, []);
 
+ 
     return(
         <>
             <Navbar/>
             <div className="containerPokemons">
-                <div className="pokemonsTittle">
-                    <small> Mais de 250 Pokemons para você escolher o seu favorito</small>
-                </div>
-                <div className="pokemonsSearch">
-                    
-                    <input type="text" placeholder="Pesquisar pokemon"/>
-                    
-                    <button type="submit">
-                        <img src={search}/>
-                    </button>
+                <div className="boxTittleSearchSelect">
+                    <div className="pokemonsTittle">
+                        <small> Mais de 250 Pokemons para você escolher o seu favorito</small>
+                    </div>
+                    <div className="pokemonsSearch">
+                        
+                        <input type="text" placeholder="Pesquisar pokemon"/>
+                        
+                        <button type="submit">
+                            <img src={search}/>
+                        </button>
 
-                </div>
-                <div className="pokemonsSelects">
-                    <select>
-                        <option>Tipo</option>
-                        <option>Fogo</option>
-                        <option>Planta</option>
-                        <option>Elétrico</option>
-                        <option>Água</option>
-                        <option>Normal</option>
-                    </select>
+                    </div>
+                    <div className="pokemonsSelects">
+                        <select>
+                            <option>Tipo</option>
+                            {pokemons && pokemons.map((item, index) =>(
+                                <option>{item.types[0].type.name[0].toUpperCase()+item.types[0].type.name.substr(1)}</option>
+                            ))}
+                        </select>
 
-                    <select>
-                        <option>Ataque</option>
-                    </select>
+                        <select>
+                            <option>Ataque</option>
+                        </select>
 
-                    <select>
-                        <option>Defesa</option>
-                    </select>
+                        <select>
+                            <option>Defesa</option>
+                        </select>
+                    </div>
                 </div>
                 <div className="pokemonsCards">
                     <div className="boxCards">
-                        {console.log("My pokemons: ", pokemons)}
+                        {console.log(pokemons)}
                         {pokemons && pokemons.map((item, index) => (
                             <div className="cards" key={index}>
                                 <div className="cardNumber">
                                     <small>#0{item.id}</small>
                                 </div>
                                 <div className="cardName">
-                                    <small>{item.name}</small>
+                                    <small>{item.name[0].toUpperCase()+item.name.substr(1)}</small>
                                 </div>
                                 <div className="cardCategoriesImage">
                                     < div className="cardCategories">
                                         <div className="type">
-                                            <small>{item.types[0].type.name}</small>
+                                            <small>{item.types[0].type.name[0].toUpperCase()+item.types[0].type.name.substr(1)}</small>
                                         </div>
                                         <div className="typeTwo">
-                                            <small>{''}</small>
+                                            <small>{/*item.types[1].type.name*/}</small>
                                         </div>
                                     </div>
                                     <div className="cardImage">

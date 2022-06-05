@@ -1,14 +1,24 @@
-.containerPokemons{
-    
+.boxTittleSearchSelect{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .pokemonsTittle{
-    border: 1px solid;
-    width: 70%;
-    /*display: flex;
-    flex-direction: row;
+    width: 80%;
+    margin-top: 70px;
+    display: flex;
     justify-content: center;
-    align-items: center;*/
+}
+
+.pokemonsTittle small{
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #171414;
 }
 
 .pokemonsSearch{
@@ -17,16 +27,28 @@
     border: 1px solid #F1F1F1;
     box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.1);
     border-radius: 40px;
-    border: 1px solid;
+    margin-top: 30px;
+}
+
+.pokemonsSearch ::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: rgba(33, 33, 33, 0.8);
+    
 }
 
 .pokemonsSearch input{
-    width: 85%;
+    width: 90%;
     height: 50px;
     border: none;
-    padding-left: 10px;
+    padding-left: 30px;
     background: transparent;
     margin-right: 0;
+}
+
+.pokemonsSearch input:focus{
+    outline: 0; 
 }
 
 .pokemonsSearch button{
@@ -34,12 +56,59 @@
     background: #FFFFFF;
     border-radius: 0 3px 3px 0;
     cursor: pointer;
+    
 } 
 
 .pokemonsSearch button img{
-    width:70%;
-    height: 50%;
+    width:20px;
+    height: 20px;
+    
 }
+
+.pokemonsSelects{
+    margin-top: 30px;
+}
+/*Inícios estilo conforme o type do pokemon*/
+.rock {
+    background-color: rgb(148, 81, 81);
+  }
+  
+  .ghost {
+    background-color: rgb(247, 247, 247);
+  }
+  
+  .electric {
+    background-color: rgb(255, 255, 161);
+  }
+  
+  .bug {
+    background-color: #F6D6A7;
+  }
+  
+  .poison {
+    background-color: #e0a7f6;
+  }
+  
+  .normal {
+    background-color: #F4F4F4;
+  }
+  
+  .fairy {
+    background-color: rgba(255, 192, 203, 0.863);
+  }
+  
+  .fire {
+    background-color: #FBE3DF;
+  }
+  
+  .grass {
+    background-color:#E2F9E1;
+  }
+  
+  .water {
+    background-color:#E0F1FD;
+  }
+/*Final estilo conforme o type do pokemon*/
 
 .pokemonsCards{
     display: flex;
@@ -67,23 +136,8 @@
     text-align: center;
     width: 162px;
     height: 109.01px;
-    background: #46D7AB;
+ 
     border-radius: 15px;
-}
-
-.cards2{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-right: 11px;
-  margin-bottom:18px;
-  border-radius: 15px;
-  min-width: 160px;
-  text-align: center;
-  width: 162px;
-  height: 110px;
-  background: #FB6C6C;  
 }
 
 .cardNumber{
