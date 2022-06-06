@@ -6,7 +6,7 @@ import {api} from "../../service/api.js";
 
 export default function Pokemons(){
 
-    const [loadMore, setLoadMore] = useState([]);
+    const [loadMore, setLoadMore] = useState();
     const [pokemons, setPokemons] = useState([]);
 
 async function showPokemons(){
@@ -17,11 +17,10 @@ async function showPokemons(){
     for await (const element of poke){
         const {data} = await api.get(element.url);
         const newPoke = Object.assign({...element}, data);
-        //console.log("This: ", newPoke); 
         newPokes.push(newPoke);
     }
     setPokemons(newPokes);
-    console.log(pokemons);
+    console.log(pokemons[0].types[1].type.name)
 } 
 
 useEffect(()=>{
@@ -29,15 +28,17 @@ useEffect(()=>{
 }, []);
 
 async function getAllPokemons() {
-   const res = await api.get(`pokemon?offset=20&limit=20`, {method: 'GET'});
-   setLoadMore(res.data.next);
-}
+    const data = await api.get(`pokemon`)
+    const result = data.data.next;
+    
+    setLoadMore(result);
+    console.log("URL: ", loadMore);
+ }
 
 useEffect(()=> {
     getAllPokemons()
 }, []);
 
- 
     return(
         <>
             <Navbar/>
@@ -74,7 +75,7 @@ useEffect(()=> {
                 </div>
                 <div className="pokemonsCards">
                     <div className="boxCards">
-                        {console.log(pokemons)}
+                       
                         {pokemons && pokemons.map((item, index) => (
                             <div className="cards" key={index}>
                                 <div className="cardNumber">
@@ -88,9 +89,12 @@ useEffect(()=> {
                                         <div className="type">
                                             <small>{item.types[0].type.name[0].toUpperCase()+item.types[0].type.name.substr(1)}</small>
                                         </div>
+                                        {item.types[1]?
                                         <div className="typeTwo">
-                                            <small>{/*item.types[1].type.name*/}</small>
-                                        </div>
+                                            <small>{item.types[1].type.name[0].toUpperCase()+item.types[0].type.name.substr(1)}</small>
+                                        </div> :
+                                        <div></div>}
+
                                     </div>
                                     <div className="cardImage">
                                         <img src={item.sprites.other.dream_world.front_default}/>
