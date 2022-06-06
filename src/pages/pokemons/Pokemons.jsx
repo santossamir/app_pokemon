@@ -3,11 +3,13 @@ import "../../css/pokemons.css";
 import Navbar from "../../components/Navbar";
 import search from "../../img/iconSearch.svg";
 import {api} from "../../service/api.js";
+import PokemonsDetails from "../../modal/PokemonDetails";
 
 export default function Pokemons(){
 
     const [loadMore, setLoadMore] = useState();
     const [pokemons, setPokemons] = useState([]);
+    const [modalDetails, setModalDetails] = useState(false);
 
 async function showPokemons(){
     const {data} = await api.get(`pokemon/`, {method:'GET'});
@@ -20,7 +22,7 @@ async function showPokemons(){
         newPokes.push(newPoke);
     }
     setPokemons(newPokes);
-    console.log(pokemons[0].types[1].type.name)
+    console.log(pokemons);
 } 
 
 useEffect(()=>{
@@ -38,6 +40,10 @@ async function getAllPokemons() {
 useEffect(()=> {
     getAllPokemons()
 }, []);
+
+function openModal(){
+    setModalDetails(true);
+}
 
     return(
         <>
@@ -74,7 +80,7 @@ useEffect(()=> {
                     </div>
                 </div>
                 <div className="pokemonsCards">
-                    <div className="boxCards">
+                    <div className="boxCards" onClick={() => openModal()}>
                        
                         {pokemons && pokemons.map((item, index) => (
                             <div className="cards" key={index}>
@@ -103,6 +109,7 @@ useEffect(()=> {
                             </div>
                         ))}
                     </div>
+                    {modalDetails && <PokemonsDetails/>}
                     <div className="cardsButtonMore">
                         <button onClick={() => getAllPokemons()}>
                             More
