@@ -2,17 +2,17 @@ import React, {useState, useEffect} from "react";
 import "../../css/pokemons.css";
 import Navbar from "../../components/Navbar";
 import search from "../../img/iconSearch.svg";
-import {api} from "../../service/api.js";
+import { api } from "../../service/api.js";
 import PokemonsDetails from "../../modal/PokemonDetails";
 
 export default function Pokemons(){
 
-    const [loadMore, setLoadMore] = useState();
+    const [loadMore, setLoadMore] = useState(20);
     const [pokemons, setPokemons] = useState([]);
     const [modalDetails, setModalDetails] = useState(false);
 
 async function showPokemons(){
-    const {data} = await api.get(`pokemon/`, {method:'GET'});
+    const {data} = await api.get(`pokemon`, {method:'GET'});
     const poke = data.results;
     const newPokes = [];
     
@@ -22,7 +22,6 @@ async function showPokemons(){
         newPokes.push(newPoke);
     }
     setPokemons(newPokes);
-    console.log(pokemons);
 } 
 
 useEffect(()=>{
@@ -30,11 +29,11 @@ useEffect(()=>{
 }, []);
 
 async function getAllPokemons() {
-    const data = await api.get(`pokemon`)
-    const result = data.data.next;
-    
-    setLoadMore(result);
-    console.log("URL: ", loadMore);
+    let number = loadMore + 20;
+    setLoadMore(number);
+    console.log('Log do number: ', number);
+    const data = await api.get(`pokemon?offset=${loadMore}&limit=20`)
+    const result = data.data.results;
  }
 
 useEffect(()=> {
@@ -65,8 +64,8 @@ function openModal(){
                     <div className="pokemonsSelects">
                         <select>
                             <option>Tipo</option>
-                            {pokemons && pokemons.map((item, index) =>(
-                                <option>{item.types[0].type.name[0].toUpperCase()+item.types[0].type.name.substr(1)}</option>
+                            {pokemons && pokemons?.map((item, index) =>(
+                                <option>{item?.types[0].type.name[0].toUpperCase()+item?.types[0].type.name.substr(1)}</option>
                             ))}
                         </select>
 
@@ -82,28 +81,28 @@ function openModal(){
                 <div className="pokemonsCards">
                     <div className="boxCards" onClick={() => openModal()}>
                        
-                        {pokemons && pokemons.map((item, index) => (
+                        {pokemons && pokemons?.map((item, index) => (
                             <div className="cards" key={index}>
                                 <div className="cardNumber">
-                                    <small>#0{item.id}</small>
+                                    <small>#0{item?.id}</small>
                                 </div>
                                 <div className="cardName">
-                                    <small>{item.name[0].toUpperCase()+item.name.substr(1)}</small>
+                                    <small>{item?.name[0].toUpperCase()+item?.name.substr(1)}</small>
                                 </div>
                                 <div className="cardCategoriesImage">
                                     < div className="cardCategories">
                                         <div className="type">
-                                            <small>{item.types[0].type.name[0].toUpperCase()+item.types[0].type.name.substr(1)}</small>
+                                            <small>{item?.types[0].type.name[0].toUpperCase()+item?.types[0].type.name.substr(1)}</small>
                                         </div>
-                                        {item.types[1]?
+                                        {item?.types[1]?
                                         <div className="typeTwo">
-                                            <small>{item.types[1].type.name[0].toUpperCase()+item.types[0].type.name.substr(1)}</small>
+                                            <small>{item?.types[1].type.name[0].toUpperCase()+item?.types[0].type.name.substr(1)}</small>
                                         </div> :
                                         <div></div>}
 
                                     </div>
                                     <div className="cardImage">
-                                        <img src={item.sprites.other.dream_world.front_default}/>
+                                        <img src={item?.sprites.other.dream_world.front_default}/>
                                     </div>
                                 </div>
                             </div>

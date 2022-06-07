@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "../../css/home.css";
 import banner from "../../img/banner.svg";
@@ -18,9 +19,11 @@ export default function Home(){
                         </p>
                     </div>
                     <div className="homeButton">
-                        <button>
-                            Veja os pokemons
-                        </button>
+                        <Link to={"/pokemons"}>
+                            <button>
+                                Veja os pokemons
+                            </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="homeImages">
