@@ -7,8 +7,8 @@ import PokemonsDetails from "../../modal/PokemonDetails";
 
 export default function Pokemons(){
 
-    const [loadMore, setLoadMore] = useState(20);
     const [pokemons, setPokemons] = useState([]);
+    const [loadMore, setLoadMore] = useState(0);
     const [modalDetails, setModalDetails] = useState(false);
 
 async function showPokemons(){
@@ -16,7 +16,7 @@ async function showPokemons(){
     const poke = data.results;
     const newPokes = [];
     
-    for await (const element of poke){
+    for (const element of poke){
         const {data} = await api.get(element.url);
         const newPoke = Object.assign({...element}, data);
         newPokes.push(newPoke);
@@ -31,9 +31,20 @@ useEffect(()=>{
 async function getAllPokemons() {
     let number = loadMore + 20;
     setLoadMore(number);
+    console.log(loadMore);
     console.log('Log do number: ', number);
     const data = await api.get(`pokemon?offset=${loadMore}&limit=20`)
     const result = data.data.results;
+
+    let newPokes = pokemons;
+    
+    for (const element of result){
+        const {data} = await api.get(element.url);
+        const newPoke = Object.assign({...element}, data);
+        newPokes.push(newPoke);
+
+    }
+    setPokemons(newPokes);
  }
 
 useEffect(()=> {
@@ -80,9 +91,8 @@ function openModal(){
                 </div>
                 <div className="pokemonsCards">
                     <div className="boxCards" onClick={() => openModal()}>
-                       
                         {pokemons && pokemons?.map((item, index) => (
-                            <div className="cards" key={index}>
+                            <div className={'cards '+item?.types[0].type.name} key={index}>
                                 <div className="cardNumber">
                                     <small>#0{item?.id}</small>
                                 </div>

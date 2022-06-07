@@ -68,21 +68,23 @@
 .pokemonsSelects{
     margin-top: 30px;
 }
+
 /*Inícios estilo conforme o type do pokemon*/
+
 .rock {
-    background-color: rgb(148, 81, 81);
+    background-color: #483D8B;
   }
   
   .ghost {
-    background-color: rgb(247, 247, 247);
+    background-color: #696969;
   }
   
   .electric {
-    background-color: rgb(255, 255, 161);
+    background-color: #FFCE4B;;
   }
   
   .bug {
-    background-color: #F6D6A7;
+    background-color: #b4e652;
   }
   
   .poison {
@@ -90,7 +92,7 @@
   }
   
   .normal {
-    background-color: #F4F4F4;
+    background-color: #8a81daef;
   }
   
   .fairy {
@@ -98,15 +100,28 @@
   }
   
   .fire {
-    background-color: #FBE3DF;
+    background: #FB6C6C;
   }
   
   .grass {
-    background-color:#E2F9E1;
+    background-color: #46D7AB;
   }
   
   .water {
-    background-color:#E0F1FD;
+    background-color:#7fcad4
+    ;
+  }
+
+  .ground{
+      background-color: #d87e55;
+  }
+
+  .psychic{
+      background-color: 	#dbb3db;
+  }
+
+  .fighting{
+    background-color: 	#FF8C00;
   }
 /*Final estilo conforme o type do pokemon*/
 
@@ -137,7 +152,6 @@
     text-align: center;
     width: 162px;
     height: 109.01px;
- 
     border-radius: 15px;
 }
 
@@ -154,9 +168,8 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 14px;
-    color: #3E8570;
     mix-blend-mode: normal;
-    opacity: 0.5;
+    opacity: 0.2;
 }
 
 .cardName{
@@ -181,7 +194,9 @@
 
 .type, .typeTwo{
     box-sizing: border-box;
-    background:  #6de4c0;
+    background: #FFFFFF;
+    background-blend-mode: soft-light;
+    opacity: 0.4;
     border-radius: 38px;
     width: 45px;
     height: 16px;
@@ -203,7 +218,8 @@
     font-weight: 500;
     font-size: 8px;
     line-height: 28px;  
-    color: #FFFFFF;
+    /*color: #FFFFFF;*/
+    color:#171414;
 }
 
 .cardImage img{
