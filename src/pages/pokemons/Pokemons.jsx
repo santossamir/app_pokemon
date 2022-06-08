@@ -99,7 +99,7 @@ function openModal(){
                         {pokemons && pokemons?.map((item, index) => (
                             <div className={'cards '+item?.types[0].type.name} key={index} onClick={()=> (openModal(), setDetailsPokemon(item))}>
                                 <div className="cardNumber">
-                                    <small>#0{item?.id}</small>
+                                    <small>{item.id <= 9?'#00'+item?.id : '#0'+item?.id}</small>
                                 </div>
                                 <div className="cardName">
                                     <small>{item?.name[0].toUpperCase()+item?.name.substr(1)}</small>

@@ -34,7 +34,7 @@ export default function PokemonsDetails(props){
                     <div className="detailsCard">
                         <div className="nameId">
                             <div className="name">
-                                <small>{name}</small>
+                                <small>{name[0].toUpperCase()+name.substr(1)}</small>
                             </div>
                             <div className="id">#0{id}</div>
                         </div>
@@ -56,7 +56,7 @@ export default function PokemonsDetails(props){
                                 <p>Altura</p>
                             </div>
                             <div className="power">
-                                <small>{abilities[0].ability.name}</small>
+                                <small>{abilities[0].ability.name[0].toUpperCase()+abilities[0].ability.name.substr(1)}</small>
                                 <p>Peder Principal</p>
                             </div>
                         </div>
