@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoPokemon from "../img/logo.svg";
-import "../css/navbar.css";
+import "../css/navbarContacts.css";
 
 export default function Navbar(){
     return(
@@ -13,7 +13,7 @@ export default function Navbar(){
                     </Link> 
                 </div>
                 <div class="menu">
-                    <div id="home">
+                    <div>
                         <Link to={"/"}>
                             <small>Home</small>
                         </Link>
@@ -23,7 +23,7 @@ export default function Navbar(){
                             <small>Pokemons</small>
                         </Link>
                     </div>
-                    <div>
+                    <div id="contacts">
                         <Link to={"/contacts"}>
                             <small>Contato</small>
                         </Link>

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "../../css/pokemons.css";
-import Navbar from "../../components/Navbar";
+import NavbarPokemons from "../../components/NavbarPokemons";
 import search from "../../img/iconSearch.svg";
 import button from "../../img/button.svg";
 import { api } from "../../service/api.js";
@@ -54,26 +54,24 @@ useEffect(()=> {
     getAllPokemons()
 }, []);
 
+
 function openModal(){
     setModalDetails(true);
 }
 
     return(
         <>
-            <Navbar/>
+            <NavbarPokemons/>
             <div className="containerPokemons">
                 <div className="boxTittleSearchSelect">
                     <div className="pokemonsTittle">
                         <small> Mais de 250 Pokemons para você escolher o seu favorito</small>
                     </div>
                     <div className="pokemonsSearch">
-                        
                         <input type="text" placeholder="Pesquisar pokemon"/>
-                        
                         <button type="submit">
                             <img src={search}/>
                         </button>
-
                     </div>
                     <div className="pokemonsSelects">
                         <select>
@@ -110,11 +108,11 @@ function openModal(){
                                             <small>{item?.types[0].type.name[0].toUpperCase()+item?.types[0].type.name.substr(1)}</small>
                                         </div>
                                         {item?.types[1]?
-                                        <div className="typeTwo">
-                                            <small>{item?.types[1].type.name[0].toUpperCase()+item?.types[0].type.name.substr(1)}</small>
-                                        </div> :
-                                        <div></div>}
-
+                                            <div className="typeTwo">
+                                                <small>{item?.types[1].type.name[0].toUpperCase()+item?.types[0].type.name.substr(1)}</small>
+                                            </div> :
+                                            <div></div>
+                                        }
                                     </div>
                                     <div className="cardImage">
                                         <img src={item?.sprites.other.dream_world.front_default}/>

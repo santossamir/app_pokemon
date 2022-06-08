@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
+import NavbarContacts from "../../components/NavbarContacts";
 
 export default function Contacts(){
     return(
         <>
-        <Navbar/>
-            I'm Contacts!
+        <NavbarContacts/>
+            
         </>
    
     )

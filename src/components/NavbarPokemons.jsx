@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoPokemon from "../img/logo.svg";
-import "../css/navbar.css";
+import "../css/navbarPokemons.css";
 
-export default function Navbar(){
+export default function NavbarPokemons(){
     return(
         <>
             <div class="nav-wrapper">
@@ -13,12 +13,12 @@ export default function Navbar(){
                     </Link> 
                 </div>
                 <div class="menu">
-                    <div id="home">
+                    <div>
                         <Link to={"/"}>
                             <small>Home</small>
                         </Link>
                     </div>
-                    <div>
+                    <div id="pokemons">
                         <Link to={"/pokemons"}>
                             <small>Pokemons</small>
                         </Link>
