@@ -11,13 +11,16 @@
 .boxCardModal{
     display: flex;
     margin-top: 17px;
-    border-radius: 0px 8px 8px 0px;
+    box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
+    border-radius: 8px;
+    background: #FFFFFF;
 }
 
 .posterCard{
     background: #FB6C6C;
-    box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
     border-radius: 8px;
+    box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
+    z-index: 2000;
 }
 
 .portesCardImage{
@@ -61,7 +64,7 @@
     width: 444px;
     height: 371px;
     background: #FFFFFF;
-    border-radius: 5px;
+    border-radius: 0px 8px 8px 0px;
 }
 
 .nameId{

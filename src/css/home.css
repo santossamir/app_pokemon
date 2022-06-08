@@ -10,13 +10,13 @@
 }
 
 .homeElements{
-    width: 30%;
+    width: 35%;
     margin-left: 10%;
     margin-top: 100px;
 }
 
 .homeTittle{
-    width: 450px;
+
 }
 
 .homeTittle h1{
@@ -27,7 +27,7 @@
 }
 
 .homeParagraph{
-    width: 430px;
+    width: 100%;
     margin-top: 18px;
 }
 

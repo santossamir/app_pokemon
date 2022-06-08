@@ -9,10 +9,11 @@
     margin-top: 70px;
     display: flex;
     justify-content: center;
-    margin-left: 168px;
+    margin-left: 10%;
 }
 
 .pokemonsTittle small{
+    font-family: 'Inter';
     font-weight: 400;
     font-size: 35px;
     line-height: 42px;
@@ -28,11 +29,12 @@
     box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.1);
     border-radius: 40px;
     margin-top: 30px;
-    margin-left: 177px;
+    margin-left: 12%;
 
 }
 
 .pokemonsSearch ::placeholder{
+    font-family: 'Inter';
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
@@ -69,7 +71,7 @@
 
 .pokemonsSelects{
     margin-top: 30px;
-    margin-left: 207px;
+    margin-left: 15%;
 }
 
 .pokemonsSelects select{
