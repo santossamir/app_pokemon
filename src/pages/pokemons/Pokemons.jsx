@@ -24,7 +24,6 @@ async function showPokemons(){
         newPokes.push(newPoke);
     }
     setPokemons(newPokes);
-    console.log(pokemons);
 } 
 
 useEffect(()=>{
@@ -34,8 +33,6 @@ useEffect(()=>{
 async function getAllPokemons() {
     let number = loadMore + 20;
     setLoadMore(number);
-    console.log(loadMore);
-    console.log('Log do number: ', number);
     const data = await api.get(`pokemon?offset=${loadMore}&limit=20`)
     const result = data.data.results;
 
@@ -103,7 +100,7 @@ function openModal(){
                                     <small>{item?.name[0].toUpperCase()+item?.name.substr(1)}</small>
                                 </div>
                                 <div className="cardCategoriesImage">
-                                    < div className="cardCategories">
+                                    <div className="cardCategories">
                                         <div className="type">
                                             <small>{item?.types[0].type.name[0].toUpperCase()+item?.types[0].type.name.substr(1)}</small>
                                         </div>
@@ -136,6 +133,5 @@ function openModal(){
                 </div>
             </div>
         </>
-   
     )
 }
