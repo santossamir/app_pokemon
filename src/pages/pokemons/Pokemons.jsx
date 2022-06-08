@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import "../../css/pokemons.css";
 import Navbar from "../../components/Navbar";
 import search from "../../img/iconSearch.svg";
+import button from "../../img/button.svg";
 import { api } from "../../service/api.js";
 import PokemonsDetails from "../../modal/PokemonDetails";
 
@@ -10,6 +11,7 @@ export default function Pokemons(){
     const [pokemons, setPokemons] = useState([]);
     const [loadMore, setLoadMore] = useState(0);
     const [modalDetails, setModalDetails] = useState(false);
+    const [detailsPokemon, setDetailsPokemon] = useState([]);
 
 async function showPokemons(){
     const {data} = await api.get(`pokemon`, {method:'GET'});
@@ -22,6 +24,7 @@ async function showPokemons(){
         newPokes.push(newPoke);
     }
     setPokemons(newPokes);
+    console.log(pokemons);
 } 
 
 useEffect(()=>{
@@ -75,9 +78,11 @@ function openModal(){
                     <div className="pokemonsSelects">
                         <select>
                             <option>Tipo</option>
-                            {pokemons && pokemons?.map((item, index) =>(
-                                <option>{item?.types[0].type.name[0].toUpperCase()+item?.types[0].type.name.substr(1)}</option>
-                            ))}
+                            <option>Fogo</option>
+                            <option>Planta</option>
+                            <option>Elétrico</option>
+                            <option>Água</option>
+                            <option>Normal</option>
                         </select>
 
                         <select>
@@ -90,9 +95,9 @@ function openModal(){
                     </div>
                 </div>
                 <div className="pokemonsCards">
-                    <div className="boxCards" onClick={() => openModal()}>
+                    <div className="boxCards">
                         {pokemons && pokemons?.map((item, index) => (
-                            <div className={'cards '+item?.types[0].type.name} key={index}>
+                            <div className={'cards '+item?.types[0].type.name} key={index} onClick={()=> (openModal())}>
                                 <div className="cardNumber">
                                     <small>#0{item?.id}</small>
                                 </div>
@@ -120,9 +125,9 @@ function openModal(){
                     </div>
                     {modalDetails && <PokemonsDetails/>}
                     <div className="cardsButtonMore">
-                        <button onClick={() => getAllPokemons()}>
-                            More
-                        </button>
+                            <img src={button} onClick={() => getAllPokemons()}/>
+                            <img src={button} onClick={() => getAllPokemons()}/>
+                            <img src={button} onClick={() => getAllPokemons()}/>
                     </div>
                 </div>
             </div>

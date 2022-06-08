@@ -37,9 +37,9 @@ function closeModal(){
                     <div className="detailsCard">
                         <div className="nameId">
                             <div className="name">
-                                <small>Charizard</small>
+                                <small>Cherazard</small>
                             </div>
-                            <div className="id">#005</div>
+                            <div className="id">#0</div>
                         </div>
                         <div className="description">
                             <p>

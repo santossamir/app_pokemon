@@ -1,15 +1,15 @@
 .boxTittleSearchSelect{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
 }
 
 .pokemonsTittle{
-    width: 80%;
+    width: 82%;
     margin-top: 70px;
     display: flex;
     justify-content: center;
+    margin-left: 168px;
 }
 
 .pokemonsTittle small{
@@ -28,6 +28,8 @@
     box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.1);
     border-radius: 40px;
     margin-top: 30px;
+    margin-left: 177px;
+
 }
 
 .pokemonsSearch ::placeholder{
@@ -67,9 +69,35 @@
 
 .pokemonsSelects{
     margin-top: 30px;
+    margin-left: 207px;
 }
 
-/*Inícios estilo conforme o type do pokemon*/
+.pokemonsSelects select{
+    width:135px;
+    height:21px;
+    background: #F2F2F2;
+    box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
+    border-radius: 4px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #171414;
+    text-align: center;
+    margin-right: 50px;
+    border: none;
+}
+
+.pokemonsSelects select option{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    align-items: flex-start;
+}
+
+/*Início -  estilo conforme o type do pokemon*/
 
 .rock {
     background-color: #483D8B;
@@ -123,7 +151,7 @@
   .fighting{
     background-color: 	#FF8C00;
   }
-/*Final estilo conforme o type do pokemon*/
+/*Final - estilo conforme o type do pokemon*/
 
 .pokemonsCards{
     display: flex;
@@ -225,4 +253,10 @@
 .cardImage img{
     width: 79.43px;
     height: 70.36px;
+}
+
+.cardsButtonMore img{
+    margin-left: 16px;
+    cursor: pointer;
+    opacity: 0.6;
 }
