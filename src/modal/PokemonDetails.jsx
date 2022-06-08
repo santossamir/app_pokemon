@@ -3,11 +3,22 @@ import "../css/pokemonsDetails.css";
 import closeIcon from "../img/closeIcon.svg";
 import vector from "../img/vector.svg";
 import vectorTwo from "../img/vector2.svg";
+import { api } from "../service/api.js";
 
 export default function PokemonsDetails(props){
 
+    const [description, setDescription] = useState([])
     const {id, name, weight, height, types, abilities, sprites, stats } = props.details;
-    console.log(props.details)
+
+    async function descriptionPoke(){
+        const data = await api.get(`pokemon-species/${id}/`, {method:'GET'});
+        const poke = data.data.flavor_text_entries[10].flavor_text;          
+        setDescription(poke);
+    }
+
+    useEffect(()=>{
+        descriptionPoke();
+    }, []);
 
     return(
         <>
@@ -42,8 +53,7 @@ export default function PokemonsDetails(props){
                             </div>
                             <div className="description">
                                 <p>
-                                    Charizard é um Pokémon bípede dracônico. É principalmente laranja
-                                    com uma parte inferior creme do peito até a ponta da cauda. 
+                                    {description}
                                 </p>
                             </div>
                             <div className="screening">
@@ -59,7 +69,7 @@ export default function PokemonsDetails(props){
                                 </div>
                                 <div className="power">
                                     <small>{abilities[0].ability.name[0].toUpperCase()+abilities[0].ability.name.substr(1)}</small>
-                                    <p>Peder Principal</p>
+                                    <p>Poder Principal</p>
                                 </div>
                             </div>
                             <div className="tableCharacteristics">

@@ -99,62 +99,6 @@
     align-items: flex-start;
 }
 
-/*Início -  estilo conforme o type do pokemon*/
-
-.rock {
-    background-color: #483D8B;
-  }
-  
-  .ghost {
-    background-color: #696969;
-  }
-  
-  .electric {
-    background-color: #FFCE4B;;
-  }
-  
-  .bug {
-    background-color: #b4e652;
-  }
-  
-  .poison {
-    background-color: #e0a7f6;
-  }
-  
-  .normal {
-    background-color: #8a81daef;
-  }
-  
-  .fairy {
-    background-color: rgba(255, 192, 203, 0.863);
-  }
-  
-  .fire {
-    background: #FB6C6C;
-  }
-  
-  .grass {
-    background-color: #46D7AB;
-  }
-  
-  .water {
-    background-color:#7fcad4
-    ;
-  }
-
-  .ground{
-      background-color: #d87e55;
-  }
-
-  .psychic{
-      background-color: 	#dbb3db;
-  }
-
-  .fighting{
-    background-color: 	#FF8C00;
-  }
-/*Final - estilo conforme o type do pokemon*/
-
 .pokemonsCards{
     display: flex;
     flex-direction: column;
@@ -262,3 +206,75 @@
     cursor: pointer;
     opacity: 0.6;
 }
+
+/*Início -  estilo conforme o type do pokemon*/
+
+.rock {
+    background-color: #483D8B;
+  }
+  
+  .ghost {
+    background-color: #696969;
+  }
+  
+  .electric {
+    background-color: #FFCE4B;;
+  }
+  
+  .bug {
+    background-color: #b4e652;
+  }
+  
+  .poison {
+    background-color: #e0a7f6;
+  }
+  
+  .normal {
+    background-color: #8a81daef;
+  }
+  
+  .fairy {
+    background-color: rgba(255, 192, 203, 0.863);
+  }
+  
+  .fire {
+    background: #FB6C6C;
+  }
+  
+  .grass {
+    background-color: #46D7AB;
+  }
+  
+  .water {
+    background-color:#7fcad4
+    ;
+  }
+
+  .ground{
+      background-color: #d87e55;
+  }
+
+  .psychic{
+      background-color: #dbb3db;
+  }
+
+  .fighting{
+    background-color: #FF8C00;
+  }
+
+  .ice{
+    background-color:#ADD8E6;
+  }
+
+  .dragon{
+      background-color: #4682B4;
+  }
+
+  .steel{
+   background-color: 	#8FBC8F;
+  }
+
+  .dark{
+      background-color: #2F4F4F;
+  }
+/*Final - estilo conforme o type do pokemon*/

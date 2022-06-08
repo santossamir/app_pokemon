@@ -1,5 +1,4 @@
 .modalContainer{
-
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -14,12 +13,6 @@
     align-items: center;
     z-index: 3;
     backdrop-filter: blur(12px);
-}
-
-.closeModal{
-    width: 47%;
-    display: flex;
-    justify-content: end;
 }
 
 .boxCardModal{
@@ -209,55 +202,70 @@
 /*Estilo conforme o type do pokemon*/
 
 .rock {
-    background-color: #483D8B;
-  }
+    background-color: 	#BC8F8F;
+}
   
-  .ghost {
+.ghost {
     background-color: #696969;
-  }
-  
-  .electric {
+}
+
+.electric {
     background-color: #FFCE4B;;
-  }
-  
-  .bug {
+}
+
+.bug {
     background-color: #b4e652;
-  }
-  
-  .poison {
+}
+
+.poison {
     background-color: #e0a7f6;
-  }
-  
-  .normal {
+}
+
+.normal {
     background-color: #8a81daef;
-  }
-  
-  .fairy {
+}
+
+.fairy {
     background-color: rgba(255, 192, 203, 0.863);
-  }
-  
-  .fire {
+}
+
+.fire {
     background: #FB6C6C;
-  }
-  
-  .grass {
+}
+
+.grass {
     background-color: #46D7AB;
-  }
-  
-  .water {
-    background-color:#7fcad4
-    ;
-  }
+}
 
-  .ground{
-      background-color: #d87e55;
-  }
+.water {
+    background-color:#7fcad4;
+}
 
-  .psychic{
-      background-color: #dbb3db;
-  }
+.ground{
+    background-color: #d87e55;
+}
 
-  .fighting{
+.psychic{
+    background-color: #dbb3db;
+}
+
+.fighting{
     background-color: #FF8C00;
-  }
+}
+
+.ice{
+    background-color:#ADD8E6;
+}
+
+.dragon{
+    background-color: #4682B4;
+}
+
+.steel{
+    background-color: 	#8FBC8F;
+}
+
+.dark{
+    background-color: #2F4F4F;
+}
 /*Final - Estilo conforme o type do pokemon*/
