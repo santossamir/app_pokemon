@@ -8,7 +8,8 @@ import vectorTwo from "../img/vector2.svg";
 
 export default function PokemonsDetails(props){
 
-    const {id, name, weight, height, types, abilities, sprites } = props.details;
+    const {id, name, weight, height, types, abilities, sprites, stats } = props.details;
+    console.log(props.details)
 
     return(
         <>
@@ -21,14 +22,15 @@ export default function PokemonsDetails(props){
                     <div className={'posterCard '+types[0].type.name}>
                         <div className="portesCardImage">
                             <img src={sprites.other.dream_world.front_default} alt={name}/>
-                            {/*<div className="posterCardTypes">
+                            <div className="posterCardTypes">
                                 <div className="posterType">
-                                    <small>TypeOne</small>
+                                    <small>{types[0].type.name[0].toUpperCase()+types[0].type.name.substr(1)}</small>
                                 </div>
+                                {types[1]?
                                 <div className="posterTypeTwo">
-                                    <small>TypeTwo</small>
-                                </div>
-                            </div>*/}
+                                    <small>{types[1].type.name[0].toUpperCase()+types[0].type.name.substr(1)}</small>
+                                </div>:<dvi></dvi>}
+                            </div>
                         </div>
                     </div>
                     <div className="detailsCard">
@@ -36,7 +38,7 @@ export default function PokemonsDetails(props){
                             <div className="name">
                                 <small>{name[0].toUpperCase()+name.substr(1)}</small>
                             </div>
-                            <div className="id">#0{id}</div>
+                            <div className="id">{id <= 9 ? '#00'+id : '#0'+id}</div>
                         </div>
                         <div className="description">
                             <p>
@@ -64,22 +66,22 @@ export default function PokemonsDetails(props){
                             <table>
                                 <tr>
                                     <th>Ataque</th>
-                                    <td>65</td>
+                                    <td>{stats[1].base_stat}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <th>Defesa</th>
-                                    <td>45</td>
+                                    <td>{stats[2].base_stat}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <th>VI. Ataque</th>
-                                    <td>45</td>
+                                    <td>{stats[3].base_stat}</td>
                                     <td></td>
                                 </tr>                              
                                 <tr>
                                     <th>Total</th>
-                                    <td>45</td>
+                                    <td>{stats[1].base_stat + stats[2].base_stat + stats[3].base_stat}</td>
                                     <td></td>
                                 </tr>
                             </table> 

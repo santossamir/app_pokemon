@@ -20,31 +20,41 @@
     border-radius: 8px;
 }
 
-.portesCardImage img{
-    width: 364px;
+.portesCardImage{
+    width: 365px;
     height: 371px;
     border-radius: 8px;
+}
+
+.portesCardImage img{
+    width: 321px;
+    height: 315px;
+    margin-left: 25px;
+    margin-top: 16px;
 }
 
 .posterCardTypes{
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 14px;
-    margin-right: 10px;
+    margin-right: 12px;
+    position: relative;
+    top: -15px;
 }
 
-.posterType{
+.posterType, .posterTypeTwo{
+    opacity: 0.4;
+    border-radius: 15px;  
+    background-color: #FFFFFF;
+    width: 70px;
+    height: 30px;
     margin-right: 5px;
+    display: flex;
+    justify-content: center;
 }
 
 .posterCardTypes small{
-    border: 1px solid;
-    opacity: 0.4;
-    border-radius: 15px;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 28px;  
-    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 12px;  
 }
 
 .detailsCard{
@@ -79,7 +89,7 @@
     font-size: 24px;
     line-height: 30px;
     text-align: center;
-    color: #FB6C6C;
+    color:rgba(33, 33, 33, 0.8);
     opacity: 0.5;
     margin-right: 23px;
     margin-top: 30px;
@@ -152,10 +162,9 @@
 }
 
 .tableCharacteristics{
-    margin-top: 32px;
+    margin-top: 22px;
     margin-left: 48px;
 }
-
 
 .tableCharacteristics table th{
     font-family: 'SF Pro Display';
@@ -180,7 +189,7 @@
     color: #303943;
 }
 
-/*Início -  estilo conforme o type do pokemon*/
+/*Estilo conforme o type do pokemon*/
 
 .rock {
     background-color: #483D8B;
@@ -228,10 +237,10 @@
   }
 
   .psychic{
-      background-color: 	#dbb3db;
+      background-color: #dbb3db;
   }
 
   .fighting{
-    background-color: 	#FF8C00;
+    background-color: #FF8C00;
   }
-/*Final - estilo conforme o type do pokemon*/
+/*Final - Estilo conforme o type do pokemon*/
