@@ -97,7 +97,7 @@ function openModal(){
                 <div className="pokemonsCards">
                     <div className="boxCards">
                         {pokemons && pokemons?.map((item, index) => (
-                            <div className={'cards '+item?.types[0].type.name} key={index} onClick={()=> (openModal())}>
+                            <div className={'cards '+item?.types[0].type.name} key={index} onClick={()=> (openModal(), setDetailsPokemon(item))}>
                                 <div className="cardNumber">
                                     <small>#0{item?.id}</small>
                                 </div>
@@ -123,7 +123,13 @@ function openModal(){
                             </div>
                         ))}
                     </div>
-                    {modalDetails && <PokemonsDetails/>}
+                    {modalDetails && 
+                        <PokemonsDetails  
+                            modalState={modalDetails} 
+                            setModalState={setModalDetails} 
+                            details={detailsPokemon}
+                        />
+                    }
                     <div className="cardsButtonMore">
                             <img src={button} onClick={() => getAllPokemons()}/>
                             <img src={button} onClick={() => getAllPokemons()}/>

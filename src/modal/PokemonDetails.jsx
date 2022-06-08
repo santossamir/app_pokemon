@@ -6,24 +6,21 @@ import closeIcon from "../img/closeIcon.svg";
 import vector from "../img/vector.svg";
 import vectorTwo from "../img/vector2.svg";
 
-export default function PokemonsDetails(){
+export default function PokemonsDetails(props){
 
-    const[modalDetails, setModalDetails] = useState(true);
+    const {id, name, weight, height, types, abilities, sprites } = props.details;
 
-function closeModal(){
-    setModalDetails(false);
-}
     return(
         <>
-            {modalDetails? 
+            {props.modalState ? 
             <div className="modalContainer">
                 <div className="closeModal">
-                    <img src={closeIcon} onClick={()=>closeModal()}/>
+                    <img src={closeIcon} onClick={()=> props.setModalState(false)} alt="Fechar"/>
                 </div>
                 <div className="boxCardModal">
-                    <div className="posterCard">
+                    <div className={'posterCard '+types[0].type.name}>
                         <div className="portesCardImage">
-                            <img src={charizard}/>
+                            <img src={sprites.other.dream_world.front_default} alt={name}/>
                             {/*<div className="posterCardTypes">
                                 <div className="posterType">
                                     <small>TypeOne</small>
@@ -37,9 +34,9 @@ function closeModal(){
                     <div className="detailsCard">
                         <div className="nameId">
                             <div className="name">
-                                <small>Cherazard</small>
+                                <small>{name}</small>
                             </div>
-                            <div className="id">#0</div>
+                            <div className="id">#0{id}</div>
                         </div>
                         <div className="description">
                             <p>
@@ -49,17 +46,17 @@ function closeModal(){
                         </div>
                         <div className="screening">
                             <div className="width">
-                                <img src={vector}/>
-                                <small>90.5 Kg</small>
+                                <img src={vector} alt="Balança"/>
+                                <small>{weight} Kg</small>
                                 <p>Peso</p>
                             </div>
                             <div className="height">
-                                <img src={vectorTwo}/>
-                                <small>1.7 m</small>
+                                <img src={vectorTwo} alt="Régua"/>
+                                <small>{height} m</small>
                                 <p>Altura</p>
                             </div>
                             <div className="power">
-                                <small>Lança chamas</small>
+                                <small>{abilities[0].ability.name}</small>
                                 <p>Peder Principal</p>
                             </div>
                         </div>
