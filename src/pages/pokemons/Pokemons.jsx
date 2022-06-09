@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
 import "../../css/pokemons.css";
 import NavbarPokemons from "../../components/NavbarPokemons";
-import search from "../../img/iconSearch.svg";
+import TittleSearchSelect from "../../components/TittleSearchSelect";
+import PokemonsDetails from "../../modal/PokemonDetails";
 import button from "../../img/button.svg";
 import { api } from "../../service/api.js";
-import PokemonsDetails from "../../modal/PokemonDetails";
+
 
 export default function Pokemons(){
 
@@ -60,35 +61,7 @@ function openModal(){
         <>
             <NavbarPokemons/>
             <div className="containerPokemons">
-                <div className="boxTittleSearchSelect">
-                    <div className="pokemonsTittle">
-                        <small> Mais de 250 Pokemons para você escolher o seu favorito</small>
-                    </div>
-                    <div className="pokemonsSearch">
-                        <input type="text" placeholder="Pesquisar pokemon"/>
-                        <button type="submit">
-                            <img src={search}/>
-                        </button>
-                    </div>
-                    <div className="pokemonsSelects">
-                        <select>
-                            <option>Tipo</option>
-                            <option>Fogo</option>
-                            <option>Planta</option>
-                            <option>Elétrico</option>
-                            <option>Água</option>
-                            <option>Normal</option>
-                        </select>
-
-                        <select>
-                            <option>Ataque</option>
-                        </select>
-
-                        <select>
-                            <option>Defesa</option>
-                        </select>
-                    </div>
-                </div>
+                <TittleSearchSelect/>
                 <div className="pokemonsCards">
                     <div className="boxCards">
                         {pokemons && pokemons?.map((item, index) => (
@@ -126,9 +99,9 @@ function openModal(){
                         />
                     }
                     <div className="cardsButtonMore">
-                            <img src={button} onClick={() => getAllPokemons()}/>
-                            <img src={button} onClick={() => getAllPokemons()}/>
-                            <img src={button} onClick={() => getAllPokemons()}/>
+                        <img src={button} onClick={() => getAllPokemons()}/>
+                        <img src={button} onClick={() => getAllPokemons()}/>
+                        <img src={button} onClick={() => getAllPokemons()}/>
                     </div>
                 </div>
             </div>
