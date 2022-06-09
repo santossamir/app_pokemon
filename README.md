@@ -1,4 +1,4 @@
-app_pokemon
+#app_pokemon
 
 Esse projeto teve como objetivo criar uma aplicação para
 pesquisar Pokémons e suas características. Para isso, o
@@ -12,13 +12,16 @@ do ReactJS.
 ![Captura de tela de 2022-06-08 18-32-03](https://user-images.githubusercontent.com/88064533/172722194-cb0da8bb-2dec-4bf6-a64b-28bc98370ed3.png)
 
 
-Tecnologias
+#Tecnologias
 _________________________________________________________________________________________________________________________________________________
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 HTML
+
 CSS
+
 JAVASCRIPT
+
 REACTJS
 
 
