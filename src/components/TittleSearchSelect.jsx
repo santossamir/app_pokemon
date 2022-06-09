@@ -2,44 +2,49 @@ import React, {useState, useEffect} from "react";
 import { api } from "../service/api.js";
 import "../css/pokemons.css";
 import search from "../img/iconSearch.svg";
+import PokemonsSearchDetails from "../modal/PokemonsSearchDetails.jsx";
 
 export default function TittleSearchSelect(){
-
+    
     const [pokemonsName, setPokemonsName] = useState("");
     const [pokemonChoose, setPokemonChoose] = useState(false);
+    const [detailsPokemonSearch, setDetailsPokemonSearch] = useState([]);
+    const [modalSearch, setModalSearch] = useState(false);
     const [pokemonReturn, setPokemonReturn] = useState({
             name: "",
             id: "",
-            type: "",
-            //typeTwo: "",
+            types: "",
             image: "",
             attack:"",
             defense: "",
             specialAttack: "",
             height: "",
             weight: "",
+            power: "",
         });
     
         const searchPokemon = () =>{
             api.get(`pokemon/${pokemonsName}`).then((response)=>{
+                console.log("Eu sou response: ", response);
                 setPokemonReturn({
                     name: pokemonsName,
                     id: response.data.id,
-                    type: response.data.types[0].type.name,
-                    //typeTwo: response.data.types[1].type.name ? response.data.types[1].type.name:'',
+                    types: response.data.types,
                     image: response.data.sprites.other.dream_world.front_default,
                     attack:response.data.stats[1].base_stat,
                     defense: response.data.stats[2].base_stat,
                     specialAttack: response.data.stats[3].base_stat,
                     height: response.data.height,
                     weight: response.data.weight,
+                    power: response.data.abilities[0].ability.name,
                 })
                 setPokemonChoose(true);
             })
         }
-        function openModal(){
-            
-        }
+        
+function openModal(){
+    setModalSearch(true);
+}
 
     return(
         <>
@@ -80,26 +85,26 @@ export default function TittleSearchSelect(){
                 <div className="pokemonResponse">
                     {!pokemonChoose ?
                         (<hi></hi>):
-                        (<div className={'cards '+pokemonReturn.type}>
+                        (<div className={'cards '+pokemonReturn.types[0].type.name} onClick={()=> (openModal(), setDetailsPokemonSearch(pokemonReturn))}> 
                             <div className="cardNumber">
-                                <small>{pokemonReturn.id <= 9? '#00'+pokemonReturn.id : '#0'+pokemonReturn.id}</small>
+                                <small>{pokemonReturn.id < 9 ? '#00'+pokemonReturn.id : '#0'+pokemonReturn.id}</small>
                             </div>
                             <div className="cardName">
-                                 <small>{pokemonReturn.name}</small>
+                                 <small>{pokemonReturn.name[0].toUpperCase()+pokemonReturn.name.substr(1)}</small>
                             </div>
                             <div className="cardCategoriesImage">
                                 <div className="cardCategories">
                                     <div className="type">
-                                        <small>{pokemonReturn.type}</small>
+                                        <small>{pokemonReturn.types[0].type.name[0].toUpperCase()+pokemonReturn.types[0].type.name.substr(1)}</small>
                                     </div>
-                                    {/*pokemonReturn.typeTwo?
+                                    {pokemonReturn.types[1]?
                                         <div className="typeTwo">
-                                            <small>{pokemonReturn.typeTwo}</small>
-                                        </div>:
+                                            <small>{pokemonReturn.types[1].type.name[0].toUpperCase()+pokemonReturn.types[0].type.name.substr(1)}</small>
+                                        </div> :
                                         <div></div>
-                                    */}
+                                    }
                                 </div>
-                                <div className="cardImage" onClick={() => (openModal())}>
+                                <div className="cardImage">
                                     <img src={pokemonReturn.image}/>
                                 </div>
                             </div>
@@ -107,6 +112,13 @@ export default function TittleSearchSelect(){
                         )
                     }
                 </div>
+                {modalSearch &&
+                    <PokemonsSearchDetails
+                        modalState={modalSearch} 
+                        setModalState={setModalSearch} 
+                        details={detailsPokemonSearch}
+                    />
+                }
             </div>
         </>
     )

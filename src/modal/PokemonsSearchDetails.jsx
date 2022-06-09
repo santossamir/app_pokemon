@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from "react";
-import "../css/pokemonsDetails.css";
 import closeIcon from "../img/closeIcon.svg";
 import vector from "../img/vector.svg";
 import vectorTwo from "../img/vector2.svg";
 import { api } from "../service/api.js";
+import "../css/pokemonsDetails.css";
 
-export default function PokemonsDetails(props){
-
-    const [description, setDescription] = useState([])
-    const {id, name, weight, height, types, abilities, sprites, stats } = props.details;
+export default function PokemonsSearchDetails(props){
     
+    const {id, name, weight, height, types, attack, defense, image, specialAttack, power} = props.details;
+    const [description, setDescription] = useState([])
+    console.log(props);
     async function descriptionPoke(){
         const data = await api.get(`pokemon-species/${id}/`, {method:'GET'});
         const poke = data.data.flavor_text_entries[10].flavor_text;          
@@ -30,7 +30,7 @@ export default function PokemonsDetails(props){
                     <div className="boxCardModal">
                         <div className={'posterCard '+types[0].type.name}>
                             <div className="portesCardImage">
-                                <img src={sprites.other.dream_world.front_default} alt={name}/>
+                                <img src={image} alt={name}/>
                                 <div className="posterCardTypes">
                                     <div className="posterType">
                                         <small>{types[0].type.name[0].toUpperCase()+types[0].type.name.substr(1)}</small>
@@ -68,7 +68,7 @@ export default function PokemonsDetails(props){
                                     <p>Altura</p>
                                 </div>
                                 <div className="power">
-                                    <small>{abilities[0].ability.name[0].toUpperCase()+abilities[0].ability.name.substr(1)}</small>
+                                    <small>{power[0].toUpperCase()+power.substr(1)}</small>
                                     <p>Poder Principal</p>
                                 </div>
                             </div>
@@ -76,22 +76,22 @@ export default function PokemonsDetails(props){
                                 <table>
                                     <tr>
                                         <th>Ataque</th>
-                                        <td>{stats[1].base_stat}</td>
+                                        <td>{attack}</td>
                                         <td></td>
                                     </tr>
                                     <tr>
                                         <th>Defesa</th>
-                                        <td>{stats[2].base_stat}</td>
+                                        <td>{defense}</td>
                                         <td></td>
                                     </tr>
                                     <tr>
                                         <th>VI. Ataque</th>
-                                        <td>{stats[3].base_stat}</td>
+                                        <td>{specialAttack}</td>
                                         <td></td>
                                     </tr>                              
                                     <tr>
                                         <th>Total</th>
-                                        <td>{stats[1].base_stat + stats[2].base_stat + stats[3].base_stat}</td>
+                                        <td>{attack + defense + specialAttack}</td>
                                         <td></td>
                                     </tr>
                                 </table> 
