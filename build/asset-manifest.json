@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/app_pokemon/static/css/main.e1a2a60b.css",
-    "main.js": "/app_pokemon/static/js/main.bc649f83.js",
+    "main.css": "/app_pokemon/static/css/main.b22b626b.css",
+    "main.js": "/app_pokemon/static/js/main.215ed714.js",
     "static/media/banner.svg": "/app_pokemon/static/media/banner.9359a071d8947c0b53297a12a657c4a4.svg",
     "static/media/logo.svg": "/app_pokemon/static/media/logo.48009fdea26f68e35a02b17314ef48f8.svg",
     "static/media/vector.svg": "/app_pokemon/static/media/vector.2eed87ae3c0b573a13fb8cee7b0f990d.svg",
@@ -10,11 +10,11 @@
     "static/media/vector2.svg": "/app_pokemon/static/media/vector2.3473e1982b52ff95822514caa0c8e8ee.svg",
     "static/media/closeIcon.svg": "/app_pokemon/static/media/closeIcon.4b8de940f0de0beeda6594f5fcb82474.svg",
     "static/media/button.svg": "/app_pokemon/static/media/button.50f99a0b0a989b75183a59215411027c.svg",
-    "main.e1a2a60b.css.map": "/app_pokemon/static/css/main.e1a2a60b.css.map",
-    "main.bc649f83.js.map": "/app_pokemon/static/js/main.bc649f83.js.map"
+    "main.b22b626b.css.map": "/app_pokemon/static/css/main.b22b626b.css.map",
+    "main.215ed714.js.map": "/app_pokemon/static/js/main.215ed714.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1a2a60b.css",
-    "static/js/main.bc649f83.js"
+    "static/css/main.b22b626b.css",
+    "static/js/main.215ed714.js"
   ]
 }
