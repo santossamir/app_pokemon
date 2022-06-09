@@ -3,16 +3,8 @@
 Esse projeto teve como objetivo criar uma aplicação para
 pesquisar Pokémons e suas características. Para isso, o
 desenvolvemos com base na API aberta do pokémon fazendo uso 
-do ReactJS.
+do ReactJS. Junto a ele o HTML, CSS e Javascript.
 
-#Tecnologias
-
-Esse projeto foi desenvolvido com as seguintes tecnologias:
-
-HTML
-CSS
-JAVASCRIPT
-REACTJS
 
 ![Captura de tela de 2022-06-08 18-31-19](https://user-images.githubusercontent.com/88064533/172722171-75ca339c-eacc-40f8-8d26-98daea6c5259.png)
 
