@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { api } from "../service/api.js";
 import "../css/pokemons.css";
 import search from "../img/iconSearch.svg";
@@ -59,7 +59,7 @@ function openModal(){
                         }}
                     />
                     <button onClick={searchPokemon}>
-                        <img src={search}/>
+                        <img src={search} alt="Lupa"/>
                     </button>
                 </div>
                 <div className="pokemonsSelects">
@@ -105,7 +105,7 @@ function openModal(){
                                     }
                                 </div>
                                 <div className="cardImage">
-                                    <img src={pokemonReturn.image}/>
+                                    <img src={pokemonReturn.image} alt={pokemonReturn.name}/>
                                 </div>
                             </div>
                         </div>
